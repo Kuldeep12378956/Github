@@ -113,8 +113,71 @@ to merge the testing branch into master branch
 #Deleting 
 
 ``` git branch -D newbranch ```
+********************************************************************
 
-#########################
+# Configure SSH connection with github.
+
+Configure SSH connection to github 
+
+Create a private repository in your github account called "repo-lab"
+Copy the SSH URL under 'Quick Setup'
+
+Add origin in your remote repository.
+
+```
+git remote add origin <url of your git repo>
+```
+
+Verify the Operation with 
+
+```
+git remote -v
+```
+
+to remove the remote origin 
+
+```
+git remote rm origin
+```
+try to push in the repo but it should fail.
+
+```
+git push origin master
+```
+
+to fix the issue we need to follow 4 steps.
+1. Create and SSH key
+2. Add public key to github
+3. Add a Private key to your workstation
+4. github will use the public key that you uploaded to decrypt the comunication from private key from your workstation authanticating that you are a authorized user.
+
+   it will be done by following 4 steps.
+   create SSH directory
+
+   ```
+   mkdir  ~/.ssh
+   ```
+
+   genrate a new SSH key named "repo-key ". Note that -t represent that type of key as an RSA protocol version 2 key, and -b flag defines the number of ecryption bits as 4k
+git clone git@github.com:Kuldeep12378956/DuetWebControl.git /var/www/html/your_subdirectory
+
+   ```
+   ssh-keygen -t rsa -b 4096
+   ```
+
+   copy the content of the public key &  enter that public key to the github user setting
+
+   got to Setting > SSH & GPG keys > SSH keys
+
+   IN new SSH key, Paste that key
+
+   NOw ADD the Private key to your Workstation keychain.
+
+   ```
+   eval $(ssh-agent)
+   ssh-add ~/.ssh/repo-key
+   
+
 
 
 
