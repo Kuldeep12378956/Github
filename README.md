@@ -10,6 +10,12 @@ git --version
 git config --global user.name "kuldeep.kumar"
 git config --global user.email "kuldeep@arintech.in"
 ```
+### Git config for local
+
+```
+git config --local <key> <value>
+
+```
 
 ### Verify the setting by 
 ```
